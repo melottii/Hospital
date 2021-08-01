@@ -13,9 +13,7 @@ Matheus Melotti: matheusmelotti@gmail.com<br>
 Este documento contém a especificação do projeto do banco de dados <Hospital> 
 <br>e motivação da escolha realizada. <br>
 
-> A empresa "Hospitais contra o covid" visa o desenvolvimento de um sistema capaz de criar e administrar prontuários médicos para o atendimento mais prático de pacientes contaminados pelo Covid-19, hospitais podem alocar os novos pacientes em seus leitos a partir de suas disponibilidades e pacientes serão atendidos mais rapidamente e terão maiores informações sobre os hospitais de sua região e suas metodologias de tratamento.
-
- 
+> A empresa "Hospitais contra o covid" visa o desenvolvimento de um sistema capaz de criar e administrar prontuários médicos para o atendimento mais prático de pacientes contaminados pelo Covid-19, hospitais podem alocar os novos pacientes em seus leitos a partir de suas disponibilidades e pacientes serão atendidos mais rapidamente e terão maiores informações sobre os hospitais de sua região e suas metodologias de tratamento.Facilidade e rapidez no processo da eliminação do vírus e tratamento do paciente. Maior integração do paciente para com os hospitais. Acompanhamento médico atualizado constantemente. Acompanhamento familiar sobre o estado do paciente. Impacto social gerado pela possibilidade de compreender e realizar estudos das regiões com melhores capacidades de tratamento e das mais afetadas pelo vírus.
 
 ### 3.MINI-MUNDO<br>
 
@@ -25,7 +23,7 @@ Descrição textual das regras de negócio definidas como um  subconjunto do mun
 cujos elementos são propriedades que desejamos incluir, processar, armazenar, 
 gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
-> O sistema proposto para a "Devcom Projetos conterá as informacões aqui detalhadas. Dos Projetos serão armazenados o número, nome e cidade. Dos Departamentos serão armazenados o número e nome. O cliente destacou que cada projeto pode ter vários departamentos auxiliando no seu desenvolvimento, e cada departamento pode estar envolvido em vários projetos. Os dados relativos aos empregados que serão armazenados são: rg, nome, cpf, salário, data inicial do salario e supervisor de cada empregado. É importante destacar que cada empregado pode ser supervisionado por outro empregado, e obrigatoriamente deve estar alocado a um único departamento, mas pode gerenciar vários departamentos ou não gerenciar nenhum. Um empregado também pode participar de vários projetos, caso seja necessário, mas não precisa obrigatoriamente estar alocado em algum projeto. Com relação aos dependentes serão armazenadas as informações de nome do dependente, data de nascimento, sexo e grau de parentesco. Cada empregado pode ter vários dependentes, mas um dependente esta associado apenas a um único empregado. Com relação ao histórico de salário devemos armazenar as informações de valor do salário, data de início do salário no período e data final do salário no período. É importante lembrar que cada funcionario pode ter diversos eventos de histórico de salário associados a ele visto que este dado pode ser alterado várias vezes. 
+> O sistema proposto por "Hospitais contra covid" ajudara tanto os pacientes como os hospitais a administrar os prontuários médicos para o atendimento mais prático dos pacientes contaminados pela Covid-19. O paciente chegara e fara um cadastro com nome, cpf, rg, data de nascimento, telefone e endereço. Esse endereço será armazenado em uma tabela separada. No hospital ele terá que guardar o nome do hospital, cep, estado, cidade, leitos disponiveis, nome medico, crm do medico e cpf do medico. Após o cadastro do Paciente e Hospital, o paciente será direcionado para o hospital mais perto de sua residencia e assim quando chegar no hospital será gerado seu prontuario com cpf do paciente, id do hospital e nivel da urgencia. 
 
 ### 4.PROTOTIPAÇÃO, PERGUNTAS A SEREM RESPONDIDAS E TABELA DE DADOS<br>
 #### 4.1 RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
@@ -38,17 +36,16 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
-    
-> A Empresa DevCom precisa inicialmente dos seguintes relatórios:
-* Relatório que mostre o nome de cada supervisor(a) e a quantidade de empregados supervisionados.
-* Relatório relativo aos os supervisores e supervisionados. O resultado deve conter o nome do supervisor e nome do supervisionado além da quantidade total de horas que cada supervisionado tem alocada aos projetos existentes na empresa.
-* Relatorio que mostre para cada linha obtida o nome do departamento, o valor individual de cada salario existente no  departamento e a média geral de salarios dentre todos os empregados. Os resultados devem ser apresentados ordenados por departamento.
-* Relatório que mostre as informações relacionadas a todos empregados de empresa (sem excluir ninguém). As linhas resultantes devem conter informações sobre: rg, nome, salario do empregado, data de início do salario atual, nomes dos projetos que participa, quantidade de horas e localização nos referidos projetos, numero e nome dos departamentos aos quais está alocado, informações do historico de salário como inicio, fim, e valores de salarios antigos que foram inclusos na referida tabela (caso possuam informações na mesma), além de todas informações relativas aos dependentes. 
->> ##### Observações: <br> a) perceba que este relatório pode conter linhas com alguns dados repetidos (mas não todos). <br>  b) para os empregados que não possuirem alguma destas informações o valor no registro deve aparecer sem informação/nulo. 
-* Relatório que obtenha a frequencia absoluta e frequencia relativa da quantidade de cpfs únicos no relatório anterior. Apresente os resultados ordenados de forma decrescente pela frequencia relativa.
+ 
+> A Hospitais contra Covid podera forncer os principais relatórios:
 
+    1- Quantidade de infectados da corona vírus, 
+    2- Quantidade de hospitais por região,
+    3- Regiões mais providas de investimentos na saúde,
+    4- Fluxo de pacientes nos hospitais,
+    5- Regiões mais afetadas pela covid.
  
- 
+
 #### 4.3 TABELA DE DADOS DO SISTEMA:
     a) Esta tabela deve conter todos os atributos do sistema e um mínimo de 10 linhas/registros de dados.
     b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
@@ -81,7 +78,6 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
      Estado: campo que armazena o Estado para cada endereço.<br>
      Cidade: campo que armazena a Cidade para cada endereço.<br>
  
- id	nome_do_hospital	cep	estado	cidade	leitos_disponíveis	nome_medico	cpf_medico	crm_medico
     Hospital: Tabela que armazena as informações relativas ao Hospital<br>
      Id: campo que armazena o id do hospital.<br>
      Nome do Hospital: campo que armazena o nome para cada hospital.<br>
@@ -92,15 +88,13 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
      Nome medico: campo que armazena o nome para cada medico do Hospital.<br>
      Cpf Medico: campo que armazena a Cadastro de Pessoa Fisica para cada medico do Hospital.<br>
      Crm Medico: campo que armazena o Conselho Regional de Medicina para cada medico do Hospital.<br>
- 
-    Prontuario: Tabela que armazena as informações relativas ao paciente<br>
-     Nome: campo que armazena o Nome para cada paciente.<br>
-     Cpf: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
-     Rg: campo que armazena o número do Registro Geral para cada paciente.<br>
-     Endereco id: campo que armazena o número id do endereço para cada paciente.<br>
-     Data nascimento: campo que armazena a data de nascimento para cada paciente.<br>
-     Telefone: campo que armazena o número de telefone para cada paciente.<br>
-
+ prontuario_id	fk_paciente_cpf	fk_hospital_id	nivel_de_urgencia
+    Prontuario: Tabela que armazena as informações relativas ao prontuario<br>
+     Id: campo que armazena o Id para cada prontuario.<br>
+     Paciente CPF: campo que armazena o número de Cadastro de Pessoa Física para cada prontuario do paciente.<br>
+     Hospital ID: campo que armazena o número do ID do hospital para cada prontuario.<br>
+     Nivel de urgencia: campo que armazena o nivel de urgência para cada prontuario.<br>
+     
 ### 6	MODELO LÓGICO<br>
         a) inclusão do esquema lógico do banco de dados
         b) verificação de correspondencia com o modelo conceitual 
