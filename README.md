@@ -53,69 +53,218 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     a) Esta tabela deve conter todos os atributos do sistema e um mínimo de 10 linhas/registros de dados.
     b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
     
-![Exemplo de Tabela de dados da Empresa Devcom](https://github.com/discipbd1/trab01/blob/master/arquivos/TabelaEmpresaDevCom_sample.xlsx?raw=true "Tabela - Empresa Devcom")
+![Exemplo de Tabela de dados do Hospitais contra o covid](https://github.com/GuilhermeFiorot/Hospital/blob/master/arquivos/TabelaHospitalcontraCovid.xlsx?raw=true "Tabela - Hospitais Contra Covid")
     
     
 ### 5.MODELO CONCEITUAL<br>
-    A) Utilizar a Notação adequada (Preferencialmente utilizar o BR Modelo 3)
-    B) O mínimo de entidades do modelo conceitual pare este trabalho será igual a 3 e o Máximo 5.
-        * informe quais são as 3 principais entidades do sistema em densenvolvimento<br>(se houverem mais de 3 entidades, pense na importância da entidade para o sistema)       
-    C) Principais fluxos de informação/entidades do sistema (mínimo 3). <br>Dica: normalmente estes fluxos estão associados as tabelas que conterão maior quantidade de dados 
-    D) Qualidade e Clareza
-        Garantir que a semântica dos atributos seja clara no esquema (nomes coerentes com os dados).
-        Criar o esquema de forma a garantir a redução de informação redundante, possibilidade de valores null, 
-        e tuplas falsas (Aplicar os conceitos de normalização abordados).   
         
-![Alt text](https://github.com/discipbd1/trab01/blob/master/images/concept_sample.png?raw=true "Modelo Conceitual")
-    
-    
+![Alt text](https://github.com/GuilhermeFiorot/Hospital/blob/master/images/ModeloConceitual_HospiralContraCovid.png?raw=true "Modelo Conceitual")
         
-    
 #### 5.1 Validação do Modelo Conceitual
-    [Grupo01]: [Nomes dos que participaram na avaliação]
-    [Grupo02]: [Nomes dos que participaram na avaliação]
+    [Grupo01]: [Guilherme e Matheus, sem alterações]
+    [Grupo02]: [Guilherme e Matheus, algumas alterações pós reunião com o professor.]
 
 #### 5.2 Descrição dos dados 
-    [objeto]: [descrição do objeto]
     
-    EXEMPLO:
-    CLIENTE: Tabela que armazena as informações relativas ao cliente<br>
-    CPF: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
-
+    Paciente: Tabela que armazena as informações relativas ao paciente<br>
+     Nome: campo que armazena o Nome para cada paciente.<br>
+     Cpf: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
+     Rg: campo que armazena o número do Registro Geral para cada paciente.<br>
+     Endereco id: campo que armazena o número id do endereço para cada paciente.<br>
+     Data nascimento: campo que armazena a data de nascimento para cada paciente.<br>
+     Telefone: campo que armazena o número de telefone para cada paciente.<br>
+    
+    Endereco: Tabela que armazena as informações relativas ao endereço do paciente<br>
+     Id: campo que armazena o ID para cada endereço.<br>
+     Cep: campo que armazena o número do cep para cada endereço.<br>
+     Numero: campo que armazena o número para cada endereço.<br>
+     Estado: campo que armazena o Estado para cada endereço.<br>
+     Cidade: campo que armazena a Cidade para cada endereço.<br>
+ 
+ id	nome_do_hospital	cep	estado	cidade	leitos_disponíveis	nome_medico	cpf_medico	crm_medico
+    Hospital: Tabela que armazena as informações relativas ao Hospital<br>
+     Id: campo que armazena o id do hospital.<br>
+     Nome do Hospital: campo que armazena o nome para cada hospital.<br>
+     Cep: campo que armazena o número do Registro Geral para cada hospital.<br>
+     Estado: campo que armazena o número id do endereço para cada hospital.<br>
+     Cidade: campo que armazena a data de nascimento para cada hospital.<br>
+     Leitos disponiveis: campo que armazena o número de telefone para cada hospital.<br>
+     Nome medico: campo que armazena o nome para cada medico do Hospital.<br>
+     Cpf Medico: campo que armazena a Cadastro de Pessoa Fisica para cada medico do Hospital.<br>
+     Crm Medico: campo que armazena o Conselho Regional de Medicina para cada medico do Hospital.<br>
+ 
+    Prontuario: Tabela que armazena as informações relativas ao paciente<br>
+     Nome: campo que armazena o Nome para cada paciente.<br>
+     Cpf: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
+     Rg: campo que armazena o número do Registro Geral para cada paciente.<br>
+     Endereco id: campo que armazena o número id do endereço para cada paciente.<br>
+     Data nascimento: campo que armazena a data de nascimento para cada paciente.<br>
+     Telefone: campo que armazena o número de telefone para cada paciente.<br>
 
 ### 6	MODELO LÓGICO<br>
         a) inclusão do esquema lógico do banco de dados
         b) verificação de correspondencia com o modelo conceitual 
         (não serão aceitos modelos que não estejam em conformidade)
-
+ ![Alt text](https://github.com/GuilhermeFiorot/Hospital/blob/master/images/ModeloLogico_HospitalContraCovid.png?raw=true "Modelo Logico")
+ 
 ### 7	MODELO FÍSICO<br>
-        a) inclusão das instruções de criacão das estruturas em SQL/DDL 
-        (criação de tabelas, alterações, etc..) 
+ 
+        CREATE TABLE Paciente (
+         nome varchar(50),
+         cpf varchar(50) primary KEY,
+         rg integer,
+         fk_Endereco_id integer,
+         foreign key (fk_Endereco_id) references Endereco(id),
+         data_nascimento date,
+         telefone integer);
+        
+        CREATE TABLE Endereco (
+         id integer primary KEY,
+         cep integer,
+         numero integer,
+         estado varchar(50),
+         cidade varchar(50));
+        
+        CREATE TABLE Prontuario (
+         prontuario_id integer primary KEY,
+         fk_Paciente_cpf varchar(50),
+         foreign key (fk_Paciente_cpf) references Paciente(cpf),
+         fk_hospital_id integer,
+         foreign key (fk_hospital_id) references Hospital(id),
+         nivel_de_urgencia varchar(50));
+        
+        CREATE TABLE Hospital (
+         id integer primary key,
+         nome_do_hospital varchar(80),
+         cep integer,
+         leitos_disponíveis integer,
+         nome_medico varchar(50),
+         cpf_medico varchar(50),
+         crm_medico integer);
         
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
-        a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físico
-        (Drop para exclusão de tabelas + create definição de para tabelas e estruturas de dados + insert para dados a serem inseridos)
-        b) Criar um novo banco de dados para testar a restauracao 
-        (em caso de falha na restauração o grupo não pontuará neste quesito)
-        c) formato .SQL
+       
+    --DROP--
+ 
+    DROP TABLE Paciente CASCADE;
 
+    DROP TABLE Hospital CASCADE;
+
+    DROP TABLE Prontuario CASCADE;
+
+    DROP TABLE Endereco CASCADE;
+    
+    --Create Table--
+ 
+    CREATE TABLE Paciente (
+     nome varchar(50),
+     cpf varchar(50) primary KEY,
+     rg integer,
+     fk_Endereco_id integer,
+     foreign key (fk_Endereco_id) references Endereco(id),
+     data_nascimento date,
+     telefone integer);
+
+    CREATE TABLE Endereco (
+     id integer primary KEY,
+     cep integer,
+     numero integer,
+     estado varchar(50),
+     cidade varchar(50));
+
+    CREATE TABLE Prontuario (
+     prontuario_id integer primary KEY,
+     fk_Paciente_cpf varchar(50),
+     foreign key (fk_Paciente_cpf) references Paciente(cpf),
+     fk_hospital_id integer,
+     foreign key (fk_hospital_id) references Hospital(id),
+     nivel_de_urgencia varchar(50));
+
+    CREATE TABLE Hospital (
+     id integer primary key,
+     nome_do_hospital varchar(80),
+     cep integer,
+     leitos_disponíveis integer,
+     nome_medico varchar(50),
+     cpf_medico varchar(50),
+     crm_medico integer);
+ 
+    --INSERT Dados--
+ 
+    insert into endereco (id, cep, numero, estado, cidade)
+     values(1, 60713000, 12, 'CE','Fortaleza'),
+     (2, 64089204, 24,'PI','Teresina'),
+     (3, 85045520, 52,'PR','Guarapuava'),(4, 77423402, 42,'TO','Gurupi'),
+     (5, 69047147, 69,'AM','Manaus'),
+     (6, 60743000, 12, 'CE','Fortaleza'),
+     (7, 64049204, 24,'PI','Teresina'),
+     (8, 85055520, 52,'PR','Guarapuava'),
+     (9, 77443402, 42,'TO','Gurupi'),
+     (10, 69047147, 69,'AM','Manaus');
+
+    insert into hospital (id, nome_do_hospital, cep, leitos_disponíveis,
+     nome_medico, cpf_medico, crm_medico)
+     values(1, 'Hospital São Camilo Fortaleza', 60160280, 40, 'Dr. Alceu Valença',
+     '42675216038', 1234),
+     (2, 'Hospital São Marcos', 64001280, 32, 'Dr. Davi Damiano', '92120563004',
+     4321),
+     (3, 'Hospital Regional de Guarapuava', 85053525, 52, 'Dra. Catherine Zardo',
+     '29688119083', 4728),
+     (4, 'Hospital Unimed Gurupi', 77103010, 12, 'Dr. Tarcisio Acordon',
+     '38280205004', 1714),
+     (5, 'Hospital Adventista de Manaus', 69075351, 79, 'Dra. Ariana Grande',
+     '30143905007', 9877),
+     (6, 'Hospital São Camilo Fortaleza', 60160280, 40, 'Dr. Breno Vargas',
+     '41672216038', 1334),
+     (7, 'Hospital São Marcos', 64001280, 32, 'Dr. Davi Santiago', '92120583004',
+     4311),
+     (8, 'Hospital Regional de Guarapuava', 85053525, 52, 'Dra. Milene Souza',
+     '29687119083', 3728),
+     (9, 'Hospital Unimed Gurupi', 77103010, 12, 'Dr. Delacruz Batista',
+     '38280206004', 1716),
+     (10, 'Hospital Adventista de Manaus', 69075351, 79, 'Dr. Emanuel Xavier',
+     '30144905007', 8877);
+
+    insert into paciente (nome, cpf, rg, data_nascimento, telefone)
+     values('Julia Silva', '34696258084', 155781091, '2000-01-01', 99972-2019),
+     ('Willian Wirosse', '18799489074', 370079097, '2000-02-01', 99973-2020),
+     ('Matheus Melotti', '14354280051', 223256195, '2001-02-09', 99862-1197),
+     ('Guilherme Firme', '28370507093', 192179275, '2000-05-10', 99132-2119),
+     ('Adenildo Alves', '17112496020', 284065638, '2000-10-01', 99872-2021),
+     ('Anastacia Klein', '34693258084', 155781091, '2000-01-11', 99972-2030),
+     ('Waldir Xavier', '18799589074', 370079097, '2000-12-31', 99973-2040),
+     ('Thalita Melotti', '14354980051', 223256195, '2001-02-19', 99862-1157),
+     ('Ricardo Alves', '28370506093', 192179275, '2000-08-20', 99132-2419),
+     ('Ademar Maranguni', '17112436020', 284065638, '2000-11-21', 99872-2921);
+
+    insert into prontuario (prontuario_id, nivel_de_urgencia)
+     values(1, 'Urgente'),
+     (2, 'Nao urgente'),
+     (3, 'Emergencia'),
+     (4, 'Pouco Urgente'),
+     (5, 'Muito Urgente'),
+     (6, 'Urgente'),
+     (7, 'Nao urgente'),
+     (8, 'Emergencia'),
+     (9, 'Pouco Urgente'),
+     (10, 'Muito Urgente');
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
- Select *
- From endereco
+ Select * From endereco
+![Alt text](https://github.com/GuilhermeFiorot/Hospital/blob/master/images/tabela_endereco.png?raw=true "Tabela Endereco") 
  
- Select *
- From hospital
+ Select * From hospital
+ ![Alt text](https://github.com/GuilhermeFiorot/Hospital/blob/master/images/tabela_hospital.png?raw=true "Tabela Hospital")
  
- Select *
- From paciente
+ Select * From paciente
+ ![Alt text](https://github.com/GuilhermeFiorot/Hospital/blob/master/images/tabela_paciente.png?raw=true "Tabela Paciente")
  
- Select *
- From prontuario
-
+ Select * From prontuario
+ ![Alt text](https://github.com/GuilhermeFiorot/Hospital/blob/master/images/tabela_prontuario.png?raw=true "Tabela Prontuario")
+ 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
