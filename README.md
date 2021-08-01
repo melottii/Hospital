@@ -88,7 +88,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
      Nome medico: campo que armazena o nome para cada medico do Hospital.<br>
      Cpf Medico: campo que armazena a Cadastro de Pessoa Fisica para cada medico do Hospital.<br>
      Crm Medico: campo que armazena o Conselho Regional de Medicina para cada medico do Hospital.<br>
- prontuario_id	fk_paciente_cpf	fk_hospital_id	nivel_de_urgencia
+    
     Prontuario: Tabela que armazena as informações relativas ao prontuario<br>
      Id: campo que armazena o Id para cada prontuario.<br>
      Paciente CPF: campo que armazena o número de Cadastro de Pessoa Física para cada prontuario do paciente.<br>
@@ -247,16 +247,20 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
- Select * From endereco
+ Select * 
+    From endereco
 ![Alt text](https://github.com/GuilhermeFiorot/Hospital/blob/master/images/tabela_endereco.png?raw=true "Tabela Endereco") 
  
- Select * From hospital
+ Select * 
+    From hospital
  ![Alt text](https://github.com/GuilhermeFiorot/Hospital/blob/master/images/tabela_hospital.png?raw=true "Tabela Hospital")
  
- Select * From paciente
+ Select * 
+    From paciente
  ![Alt text](https://github.com/GuilhermeFiorot/Hospital/blob/master/images/tabela_paciente.png?raw=true "Tabela Paciente")
  
- Select * From prontuario
+ Select * 
+    From prontuario
  ![Alt text](https://github.com/GuilhermeFiorot/Hospital/blob/master/images/tabela_prontuario.png?raw=true "Tabela Prontuario")
  
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
