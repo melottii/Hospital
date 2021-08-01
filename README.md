@@ -104,17 +104,17 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
-Select *
-From endereco
+ Select *
+ From endereco
  
-Select *
-From hospital
+ Select *
+ From hospital
  
-Select *
-From paciente
+ Select *
+ From paciente
  
-Select *
-From prontuario
+ Select *
+ From prontuario
 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
