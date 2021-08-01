@@ -13,7 +13,8 @@ Matheus Melotti: matheusmelotti@gmail.com<br>
 Este documento contém a especificação do projeto do banco de dados <Hospital> 
 <br>e motivação da escolha realizada. <br>
 
-> A empresa "Devcom Projetos" visa colaborar com desenvolvimento de projetos para uma sociedade melhor. Sabendo-se dos desafios para gerenciar projetos dentro de uma empresa e visando unir as informações relativas a funcionários, departamentos e projetos em um mesmo local, ficamos motivados com o desenvolvimento deste sistema. O Sistema "Devcom" tem como objetivo gerenciar todas as informações ao desenvolvimento das atividades de projetos em diversas localidades do país. Para realizar suas operações adequadamente e empresa necessita que sistema que armazene informações relativas aos Projetos, Departamentos e Empregados, além de também armazenar dados sobre  Dependentes e Históricos de Salário dos empregados. O sistema deverá gerar um conjunto de relatórios que por sua vez atenderá os anseios da empresa em questão.
+> A empresa "Hospitais contra o covid" visa o desenvolvimento de um sistema capaz de criar e administrar prontuários médicos para o atendimento mais prático de pacientes contaminados pelo Covid-19, hospitais podem alocar os novos pacientes em seus leitos a partir de suas disponibilidades e pacientes serão atendidos mais rapidamente e terão maiores informações sobre os hospitais de sua região e suas metodologias de tratamento.
+
  
 
 ### 3.MINI-MUNDO<br>
@@ -32,8 +33,8 @@ Neste ponto a codificação não e necessária, somente as ideias de telas devem
 
 Sugestão: https://balsamiq.com/products/mockups/<br>
 
-![Alt text](https://github.com/discipbd1/trab01/blob/master/balsamiq.png?raw=true "Title")
-![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom](https://github.com/discipbd1/trab01/blob/master/arquivos/EmpresaDevcom.pdf?raw=true "Empresa Devcom")
+![Alt text](https://github.com/GuilhermeFiorot/Hospital/blob/master/balsamiqhospitaiscontracovid.png?raw=true "Title")
+![Arquivo PDF do Protótipo Balsamiq feito para Hospitais contra o covid](https://github.com/GuilhermeFiorot/Hospital/blob/master/arquivos/hospitaiscontracovid.pdf?raw=true "Hospitais contra o covid")
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
@@ -103,6 +104,17 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
+Select *
+From endereco
+ 
+Select *
+From hospital
+ 
+Select *
+From paciente
+ 
+Select *
+From prontuario
 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
