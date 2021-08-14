@@ -200,6 +200,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         (8, 85055520, 52,'PR','Guarapuava'),
         (9, 77443402, 42,'TO','Gurupi'),
         (10, 69047147, 69,'AM','Manaus');
+    
     insert into hospital (id, nome_do_hospital, cep, estado, cidade, leitos_disponíveis, nome_medico, cpf_medico, crm_medico)
         values(1, 'Hospital São Camilo Fortaleza', 60160280, 'CE','Fortaleza', 40, 'Dr. Alceu Valença', '42675216038', 1234),
         (2, 'Hospital São Marcos', 64001280, 'PI','Teresina', 32, 'Dr. Davi Damiano', '92120563004', 4321),
